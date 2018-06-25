@@ -6,7 +6,7 @@ contract Coin {
 
     event Sent(address from, address to, uint amount);
 
-    function Coin() public {
+    constructor() public {
         minter = msg.sender;
     }
 

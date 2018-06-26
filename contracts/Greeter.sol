@@ -29,6 +29,6 @@ contract Greeter {
       namedGreeting[byteGreeting.length + 1 + i] = name[i];
     }
 
-    return named_greeting;
+    return namedGreeting;
   }
 }

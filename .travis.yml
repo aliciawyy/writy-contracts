@@ -34,4 +34,4 @@ script:
 
 after_success:
   - node_modules/.bin/solidity-coverage
-  - codecov
+  - coverage/lcov.info | codecov

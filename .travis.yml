@@ -22,7 +22,7 @@ addons:
 
 before_install:
   - export CXX="g++-4.8"
-  - npm install -g ethereumjs-testrpc truffle solium solidity-coverage codecov
+  - npm install -g truffle ganache-cli solium solidity-coverage coveralls
 
 install:
   - npm install
@@ -30,8 +30,8 @@ install:
 script:
   - solium -d .
   - testrpc &
-  - truffle test
+  - SOLIDITY_COVERAGE=true truffle test
 
 after_success:
   - node_modules/.bin/solidity-coverage
-  - coverage/lcov.info | codecov
+  - coverage/lcov.info | coveralls

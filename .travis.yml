@@ -22,7 +22,8 @@ addons:
 
 before_install:
   - export CXX="g++-4.8"
-  - npm install truffle ganache-cli solium solidity-coverage coveralls
+  - npm install -g truffle ganache-cli
+  - npm install solium solidity-coverage coveralls
 
 install:
   - npm install

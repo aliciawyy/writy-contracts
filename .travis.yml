@@ -30,8 +30,5 @@ install:
 script:
   - solium -d .
   - ganache-cli &
-  - SOLIDITY_COVERAGE=true truffle test
-
-after_success:
-  - ./node_modules/.bin/solidity-coverage
+  - solidity-coverage
   - cat coverage/lcov.info | coveralls

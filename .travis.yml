@@ -22,7 +22,7 @@ addons:
 
 before_install:
   - export CXX="g++-4.8"
-  - npm install -g truffle ganache-cli solium solidity-coverage coveralls
+  - npm install truffle ganache-cli solium solidity-coverage coveralls
 
 install:
   - npm install
@@ -30,5 +30,5 @@ install:
 script:
   - solium -d .
   - ganache-cli &
-  - solidity-coverage
+  - node_modules/.bin/./solidity-coverage
   - cat coverage/lcov.info | coveralls

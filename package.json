@@ -12,7 +12,7 @@
     "url": "https://github.com/aliciawyy/writy-contracts"
   },
   "author": "Alice Wang <rainingilove@gmail.com>",
-  "license": "GPL",
+  "license": "GPL-3.0",
   "homepage": "https://github.com/aliciawyy/writy-contracts",
   "devDependencies": {
     "coveralls": "^2.13.1",

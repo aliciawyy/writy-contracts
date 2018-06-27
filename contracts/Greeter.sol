@@ -12,7 +12,7 @@ contract Greeter {
     greeting = _greeting;
   }
 
-  function greeting(bytes name) public view returns (bytes) {
+  function greeting(bytes name) public view returns (string) {
     bytes memory byteGreeting = bytes(greeting);
     bytes memory namedGreeting = new bytes(
       byteGreeting.length + 1 + name.length
@@ -29,6 +29,6 @@ contract Greeter {
       namedGreeting[byteGreeting.length + 1 + i] = name[i];
     }
 
-    return namedGreeting;
+    return string(namedGreeting);
   }
 }

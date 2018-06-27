@@ -12,5 +12,10 @@ contract TestGreeter {
     greeter.setGreeting("Bonjour");
     Assert.equal(greeter.greeting(), "Bonjour", "");
   }
+
+  function testGreetingWithName() public {
+    Greeter greeter = new Greeter();
+    Assert.equal(greeter.greeting("World"), "Hello World", "");
+  }
 }
 

@@ -7,6 +7,13 @@
     "smart",
     "contracts"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aliciawyy/writy-contracts"
+  },
+  "author": "Alice Wang <rainingilove@gmail.com>",
+  "license": "GPL",
+  "homepage": "https://github.com/aliciawyy/writy-contracts",
   "devDependencies": {
     "coveralls": "^2.13.1",
     "ganache-cli": "6.1.0",

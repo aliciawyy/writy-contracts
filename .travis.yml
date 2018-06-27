@@ -25,7 +25,8 @@ before_install:
   - export PATH=$PATH:$PWD/node_modules/.bin/
 
 script:
-  - solium -d .
+  - npm run lint
+  - npm run lint:sol
   - ganache-cli &
   - solidity-coverage
   - cat coverage/lcov.info | coveralls

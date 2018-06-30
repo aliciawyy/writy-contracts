@@ -1,11 +1,4 @@
-var Migrations = artifacts.require('./Migrations.sol');
-
 module.exports = function (deployer) {
-  deployer.deploy(Migrations);
-};
-
-var Greeter = artifacts.require('./Greeter.sol');
-
-module.exports = function (deployer) {
-  deployer.deploy(Greeter);
+  deployer.deploy(artifacts.require('./Migrations.sol'));
+  deployer.deploy(artifacts.require('./Greeter.sol'));
 };

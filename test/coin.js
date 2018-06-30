@@ -11,7 +11,7 @@ contract('Coin', function (accounts) {
     });
   });
 
-  it("only owner can mint one address", async () => {
+  it('only owner can mint one address', async () => {
     let receiver = accounts[1];
     let amount = 1000;
 

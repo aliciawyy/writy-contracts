@@ -5,7 +5,7 @@ contract('Greeter', function () {
     return Greeter.deployed().then(function (instance) {
       return instance.greeting.call('World');
     }).then(function (greetingWords) {
-      assert.equal(greetingWords, 'Hello World', '');
+      assert.equal(greetingWords, 'Hello World');
     });
   });
 });

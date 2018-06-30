@@ -16,7 +16,9 @@
   "homepage": "https://github.com/aliciawyy/writy-contracts",
   "scripts": {
     "lint": "eslint .",
-    "lint:sol": "solium -d ."
+    "lint:fix": "eslint . --fix",
+    "lint:sol": "solium -d .",
+    "lint:sol:fix": "solium -d . --fix"
   },
   "devDependencies": {
     "coveralls": "^2.13.1",

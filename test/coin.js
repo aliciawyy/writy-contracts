@@ -10,4 +10,18 @@ contract('Coin', function (accounts) {
       assert.equal(minter, owner);
     });
   });
+
+  it("only owner can mint one address", async () => {
+    let receiver = accounts[1];
+    let amount = 1000;
+
+    let instance = await Coin.deployed({ 'from': owner });
+    await instance.mint(receiver, amount, { 'from': owner });
+    let balance = await instance.balances.call(receiver);
+    assert.equal(balance.valueOf(), amount);
+
+    await instance.mint(accounts[2], amount, { 'from': receiver });
+    let balance2 = await instance.balances.call(accounts[2]);
+    assert.equal(balance2.valueOf(), 0);
+  });
 });

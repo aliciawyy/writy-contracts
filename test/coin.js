@@ -40,7 +40,7 @@ contract('Coin', function (accounts) {
     assert.equal(balanceSender, 1000);
 
     let sentEvent = instance.Sent();
-    sentEvent.watch(function(error, result) {
+    sentEvent.watch(function (error, result) {
       if (!error) {
         assert.equal(result.args.from, from);
         assert.equal(result.args.to, to);

@@ -39,6 +39,15 @@ contract('Coin', function (accounts) {
     let balanceSender = await instance.balances(from);
     assert.equal(balanceSender, 1000);
 
+    let sentEvent = instance.Sent();
+    sentEvent.watch(function(error, result) {
+      if (!error) {
+        assert.equal(result.args.from, from);
+        assert.equal(result.args.to, to);
+        assert.equal(result.args.amount.valueOf(), amount);
+      }
+    });
+
     await instance.sendCoin(to, amount, { 'from': from });
     balanceReceiver = await instance.balances(to);
     assert.equal(balanceReceiver, amount);

@@ -17,11 +17,30 @@ contract('Coin', function (accounts) {
 
     let instance = await Coin.deployed({ 'from': owner });
     await instance.mint(receiver, amount, { 'from': owner });
-    let balance = await instance.balances.call(receiver);
-    assert.equal(balance.valueOf(), amount);
+    let balance = await instance.balances(receiver);
+    assert.equal(balance, amount);
 
     await instance.mint(accounts[2], amount, { 'from': receiver });
-    let balance2 = await instance.balances.call(accounts[2]);
-    assert.equal(balance2.valueOf(), 0);
+    let balanceWhenMinterIsNotOwner = await instance.balances(accounts[2]);
+    assert.equal(balanceWhenMinterIsNotOwner, 0);
+  });
+
+  it('user can send coins to others', async () => {
+    let from = accounts[2];
+    let to = accounts[3];
+    let amount = 100;
+
+    let instance = await Coin.deployed({ 'from': owner });
+    await instance.sendCoin(to, amount, { 'from': from });
+    let balanceReceiver = await instance.balances(to);
+    assert.equal(balanceReceiver, 0);
+
+    await instance.mint(from, 1000, { 'from': owner });
+    let balanceSender = await instance.balances(from);
+    assert.equal(balanceSender, 1000);
+
+    await instance.sendCoin(to, amount, { 'from': from });
+    balanceReceiver = await instance.balances(to);
+    assert.equal(balanceReceiver, amount);
   });
 });
